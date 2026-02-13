@@ -62,7 +62,7 @@ Here is the step-by-step breakdown of the architectural journey.
 Before Terraform can do anything, it needs a "host" to live on.
 
  * **Oracle Linux 8:** I chose this because it is stable and mirrors Red Hat Enterprise Linux (RHEL).
- * **The Conflict:** I removed podman because, while great, the Terraform community provides more robust support for the standard **Docker Engine**.
+ * **The Conflict:** I removed `podman` because, while great, the Terraform community provides more robust support for the standard **Docker Engine**.
  * **The Socket:** When I installed Docker and ran `usermod`, I created a "bridge" (the Unix socket at `/var/run/docker.sock`). This is the door Terraform knocks on to give Docker instructions.
 
 **Phase 2: The Logic (The Terraform Files)**
