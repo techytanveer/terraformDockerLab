@@ -86,5 +86,6 @@ When you ran those commands, a specific sequence of events occurred:
 
 The end result is an Immutable Infrastructure.
 
-I didn't manually run `docker pull` or `docker run`. If the container is accidentaly deleted, you don't have to remember the settings to rebuild it—you just run `terraform apply` again, and Terraform restores it exactly as defined in your code. This is what "Infrastructure as Code" means.
+I didn't manually run `docker pull` or `docker run`. If the container is accidentaly deleted, you don't have to remember the settings to rebuild it—you just run `terraform apply` again, and Terraform restores it exactly as defined in the code. This is what "Infrastructure as Code" means.
 
+---
