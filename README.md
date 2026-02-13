@@ -133,11 +133,11 @@ Testing Port 8085...
 ```
 **Possible Issues:**
 ```
-**Firewall:** OL8 is very strict. You might need to open the ports:
+>>> Firewall: OL8 is very strict. You might need to open the ports:
 sudo firewall-cmd --permanent --add-port=8080-8085/tcp
 sudo firewall-cmd --reload
 
-**SELinux:** If the container starts but traffic is blocked, temporarily test by setting SELinux to permissive:
+>>> SELinux: If the container starts but traffic is blocked, temporarily test by setting SELinux to permissive:
 sudo setenforce 0
 ```
 ---
