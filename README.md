@@ -99,8 +99,8 @@ I didn't manually run `docker pull` or `docker run`. If the container is acciden
 * **Dynamic Logic:** You used math (`8080 + count.index`) to handle networking automatically.
 * **Orchestration:** You aren't just managing a container; you are managing a cluster.
 
- - `terraform apply -auto-approve`
- - `docker ps`
- - `terraform apply -var="container_count=5" -auto-approve`
+ 1. `terraform apply -auto-approve`
+ 2. `docker ps`
+ 3. `terraform apply -var="container_count=5" -auto-approve`
 
 ---
