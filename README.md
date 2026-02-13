@@ -95,9 +95,9 @@ I didn't manually run `docker pull` or `docker run`. If the container is acciden
 
 **change-3-containers-cluster.tar**
 
-* **DRY Principle:** You are "Don't Repeat Yourself" (DRY). You didn't copy-paste the code 5 times; you used a loop.
-* **Dynamic Logic:** You used math (`8080 + count.index`) to handle networking automatically.
-* **Orchestration:** You aren't just managing a container; you are managing a cluster.
+* **DRY Principle:** "Don't Repeat Yourself" (DRY). No need to copy-paste the code 5 times; use a loop.
+* **Dynamic Logic:** Use math (`8080 + count.index`) to handle networking automatically.
+* **Orchestration:** Its not just managing a container; it is managing a cluster.
 
  1. `terraform apply -auto-approve`
  2. `docker ps`
