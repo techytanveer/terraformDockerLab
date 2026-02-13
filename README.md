@@ -105,7 +105,8 @@ I didn't manually run `docker pull` or `docker run`. If the container is acciden
 
 Verifying each docker/web server:
 
-`docker ps`
-`docker exec -it 3f067fdfdc08 /bin/bash`
-`curl -I http://localhost:8080`
+* `docker ps`
+* `docker exec -it 3f067fdfdc08 /bin/bash`
+* `curl -I http://localhost:8080`
+
 ---
