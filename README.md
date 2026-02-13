@@ -91,9 +91,9 @@ I didn't manually run `docker pull` or `docker run`. If the container is acciden
 ---
 ## CHANGES
 
-**single-container-first-stable.tar**
+**1 - single-container-first-stable.tar**
 
-**change-3-containers-cluster.tar**
+**2 - change-3-containers-cluster.tar**
 
 * **DRY Principle:** "Don't Repeat Yourself" (DRY). No need to copy-paste the code 5 times; use a loop.
 * **Dynamic Logic:** Use math (`8080 + count.index`) to handle networking automatically.
@@ -109,7 +109,7 @@ Verifying each docker/web server:
 * `docker exec -it 3f067fdfdc08 /bin/bash`
 * `curl -I http://localhost:8080`
 
-**Verification**
+**Verification:**
 
 ```
 cat verification.sh
@@ -130,6 +130,14 @@ Testing Port 8084...
 200
 Testing Port 8085...
 000
+```
+**Possible Issues:**
+```
+**Firewall:** OL8 is very strict. You might need to open the ports:
+sudo firewall-cmd --permanent --add-port=8080-8085/tcp
+sudo firewall-cmd --reload
 
+**SELinux:** If the container starts but traffic is blocked, temporarily test by setting SELinux to permissive:
+sudo setenforce 0
 ```
 ---
