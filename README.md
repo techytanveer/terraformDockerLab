@@ -59,6 +59,7 @@ This project is more than just a script; it is a **simulation of modern DevOps w
 Here is the step-by-step breakdown of the architectural journey.
 
 **Phase 1: The Foundation (The OS Layer)**
+
 Before Terraform can do anything, it needs a "host" to live on.
 
  * **Oracle Linux 8:** I chose this because it is stable and mirrors Red Hat Enterprise Linux (RHEL).
@@ -66,6 +67,7 @@ Before Terraform can do anything, it needs a "host" to live on.
  * **The Socket:** When I installed Docker and ran `usermod`, I created a "bridge" (the Unix socket at `/var/run/docker.sock`). This is the door Terraform knocks on to give Docker instructions.
 
 **Phase 2: The Logic (The Terraform Files)**
+
 Terraform works by comparing **three things:** <ins>The Code</ins>, <ins>the Reality</ins> (the State file), and <ins>the Cloud</ins> (or in my case, the Docker Engine).
 
  1. `providers.tf` **(The Translator):** Terraform doesn't natively know how to talk to Docker. This file downloads a "plugin" (the provider) that translates Terraform's language into Docker's API language.
@@ -73,6 +75,7 @@ Terraform works by comparing **three things:** <ins>The Code</ins>, <ins>the Rea
  3. `variables.tf` **(The Controller):** This allow me to change the deployment without touching the core code. To move this to port 9090, no need to edit the logic; just change in the variable will work.
 
 **Phase 3: The Lifecycle (The Execution)**
+
 When you ran those commands, a specific sequence of events occurred:
 
  * `terraform init`: Terraform looked at the code, saw that I needed the Docker provider, and went to the internet to download that plugin into the `.terraform/` folder.
@@ -80,7 +83,8 @@ When you ran those commands, a specific sequence of events occurred:
  * `terraform apply`: The actual execution. Terraform sent a request through the Unix socket to the Docker Daemon. Docker then pulled the image and started the container.
 
 **Phase 4: The Result (Infrastructure as Code)**
+
 The end result is an Immutable Infrastructure.
 
-You didn't manually run `docker pull` or `docker run`. If you accidentally delete that container, you don't have to remember the settings to rebuild it—you just run `terraform apply` again, and Terraform restores it exactly as defined in your code. This is what "Infrastructure as Code" means.
+*You didn't manually run `docker pull` or `docker run`. If you accidentally delete that container, you don't have to remember the settings to rebuild it—you just run `terraform apply` again, and Terraform restores it exactly as defined in your code. This is what "Infrastructure as Code" means.*
 
