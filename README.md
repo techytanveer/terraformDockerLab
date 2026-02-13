@@ -103,4 +103,9 @@ I didn't manually run `docker pull` or `docker run`. If the container is acciden
  2. `docker ps`
  3. `terraform apply -var="container_count=5" -auto-approve`
 
+Verifying each docker/web server:
+
+`docker ps`
+`docker exec -it 3f067fdfdc08 /bin/bash`
+`curl -I http://localhost:8080`
 ---
