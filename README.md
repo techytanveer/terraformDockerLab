@@ -94,8 +94,9 @@ I didn't manually run `docker pull` or `docker run`. If the container is acciden
 **single-container-first-stable.tar**
 
 **change-3-containers-cluster.tar**
-`terraform apply -auto-approve`
-`docker ps`
-`terraform apply -var="container_count=5" -auto-approve`
+
+ - `terraform apply -auto-approve`
+ - `docker ps`
+ - `terraform apply -var="container_count=5" -auto-approve`
 
 ---
