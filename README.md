@@ -1,4 +1,3 @@
-Markdown
 # terraformDockerLab 🚀
 
 A professional demonstration of **Infrastructure-as-Code (IaC)** using **Terraform** to orchestrate containerized environments on **Oracle Linux 8**.
