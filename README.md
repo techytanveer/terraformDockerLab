@@ -66,10 +66,7 @@ Before Terraform can do anything, it needs a "host" to live on.
  * **The Socket:** When I installed Docker and ran `usermod`, I created a "bridge" (the Unix socket at `/var/run/docker.sock`). This is the door Terraform knocks on to give Docker instructions.
 
 **Phase 2: The Logic (The Terraform Files)**
-Terraform works by comparing **three things:** 
-      1. The Code
-      2. The Reality (the State file)
-      3. and the Cloud (or in my case, the Docker Engine).
+Terraform works by comparing **three things:** <ins>The Code</ins>, <ins>the Reality</ins> (the State file), and <ins>the Cloud</ins> (or in my case, the Docker Engine).
 
  1. `providers.tf` **(The Translator):** Terraform doesn't natively know how to talk to Docker. This file downloads a "plugin" (the provider) that translates Terraform's language into Docker's API language.
  2. `main.tf` **(The Blueprint):** This is the "Desired State." Instead of saying "Run this command," I am saying "I want a container named X to exist with Port Y." Terraform's job is to make that true.
