@@ -17,6 +17,18 @@ The Terraform configuration performs the following:
 2.  **Image Management:** Pulls the latest enterprise-grade Nginx image.
 3.  **Container Orchestration:** Provisions a container with specific port mappings (`8080:80`) and resource naming conventions.
 
+## 📁 Project Structure
+
+```
+terraformDockerLab/
+├── .gitignore          # Crucial! Ignore .terraform and tfstate
+├── providers.tf        # Provider configuration
+├── main.tf             # Resource definitions
+├── variables.tf        # Input variables (Avoid hard-coding)
+├── outputs.tf          # Useful info (IPs/Ports) after deployment
+└── README.md           # Pitch
+```
+
 ## 🚀 Quick Start
 1. **Initialize Terraform:**
 
