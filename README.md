@@ -109,4 +109,27 @@ Verifying each docker/web server:
 * `docker exec -it 3f067fdfdc08 /bin/bash`
 * `curl -I http://localhost:8080`
 
+**Verification**
+
+```
+cat verification.sh
+for port in 8080 8081 8082 8083 8084 8085; do
+  echo "Testing Port $port..."
+  curl -s -o /dev/null -w "%{http_code}\n" http://localhost:$port
+done
+[tanveer@localhost terraformDockerLab]$ sh verification.sh
+Testing Port 8080...
+200
+Testing Port 8081...
+200
+Testing Port 8082...
+200
+Testing Port 8083...
+200
+Testing Port 8084...
+200
+Testing Port 8085...
+000
+
+```
 ---
