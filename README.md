@@ -57,6 +57,19 @@ terraformDockerLab/
 
 **Troubleshooting:** Managed `SELinux` and DNF package conflicts specific to Oracle Linux 8.
 
+## 🐳 Working with Dockers
+
+```
+docker ps -aq >>> listing running docker containers
+
+docker exec -it 9edcf967fa9d /bin/bash >>> connecting console via container ID
+
+docker exec -it server-1 /bin/bash >>> connecting console via container name
+
+docker stop 9edcf967fa9d >>> stopping via container ID
+
+docker rm 9edcf967fa9d >>> removing via container ID
+```
 ---
 
 ## 📄 The Menifest in phases
