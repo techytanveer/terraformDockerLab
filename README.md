@@ -7,9 +7,9 @@ This project automates the deployment of a localized web server cluster. Instead
 
 It showcases:
 
-**Infrastructure as Code (IaC):** Full lifecycle management of Docker resources.
-**Scalability:** Using Terraform `count` to scale backend services instantly.
-**Networking:** Custom Docker bridge networks for service isolation.
+* **Infrastructure as Code (IaC):** Full lifecycle management of Docker resources.
+* **Scalability:** Using Terraform `count` to scale backend services instantly.
+* **Networking:** Custom Docker bridge networks for service isolation.
 
 
 ## 🛠️ Tech Stack
