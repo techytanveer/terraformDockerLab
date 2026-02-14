@@ -3,7 +3,7 @@
 A professional demonstration of **Infrastructure-as-Code (IaC)** using **Terraform** to orchestrate containerized environments on **Oracle Linux 8**.
 
 ## 🎯 Overview
-This project automates the deployment of a localized <span style="color: green;">web server cluster</span>. Instead of manual Docker commands, this lab uses Terraform to manage the lifecycle of the infrastructure, ensuring consistency and scalability.
+This project automates the deployment of a localized <span style="color:green">web server cluster</span>. Instead of manual Docker commands, this lab uses Terraform to manage the lifecycle of the infrastructure, ensuring consistency and scalability.
 
 It showcases:
 
