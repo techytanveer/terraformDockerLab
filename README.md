@@ -100,6 +100,8 @@ I didn't manually run `docker pull` or `docker run`. If the container is acciden
 
 **1 - single-container-first-stable.tar**
 
+The original code.
+
 **2 - change-3-containers-cluster.tar**
 
 * **DRY Principle:** "Don't Repeat Yourself" (DRY). No need to copy-paste the code 5 times; use a loop.
@@ -159,6 +161,31 @@ In Terraform, `count` creates an ordered list. If we change something that shift
 
 To get the "surgical" precision we want — where we add one container and the others don't even blink — we must switch from `count` to `for_each`.
 
+With `for_each`, Terraform treats each container as a **unique ID**, not just a number in a list. If we add "Container-6," Terraform sees it as a brand new independent item and doesn't touch Containers 1 through 5.
+
 Also, we need to tell Terraform to expect (and accept) the `bridge` network mode so it stops trying to "null" it out, to stop the replacements.
 
+**One-Time Cleanup - Manually stop containers**
+```
+docker stop $(docker ps -q)
+docker rm $(docker ps -aq)
+
+rm terraform.tfstate terraform.tfstate.backup
+```
+**Apply the change**
+```
+terraform apply -auto-approve
+
+docker ps
+
+Add next server '"server-5" = { port = 8084 }' in variable.tf
+
+terraform plan >>> Verify the config 'Plan: 1 to add, 0 to change, 0 to destroy'
+
+terraform apply -target='docker_container.web_server["server-5"]'
+
+docker ps
+
+terraform destroy -target='docker_container.web_server["server-5"]'
+```
 ---
