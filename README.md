@@ -140,7 +140,7 @@ sudo firewall-cmd --reload
 >>> SELinux: If the container starts but traffic is blocked, temporarily test by setting SELinux to permissive:
 sudo setenforce 0
 ```
-**2 - change-3-containers-cluster.tar**
+**3 - change-surviving-env.tar**
 
 * `terraform apply -auto-approve`
 * `sudo systemctl restart docker`
