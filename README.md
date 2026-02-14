@@ -5,6 +5,13 @@ A professional demonstration of **Infrastructure-as-Code (IaC)** using **Terrafo
 ## 🎯 Overview
 This project automates the deployment of a localized web server cluster. Instead of manual Docker commands, this lab uses Terraform to manage the lifecycle of the infrastructure, ensuring consistency and scalability.
 
+It showcases:
+
+**Infrastructure as Code (IaC):** Full lifecycle management of Docker resources.
+**Scalability:** Using Terraform `count` to scale backend services instantly.
+**Networking:** Custom Docker bridge networks for service isolation.
+
+
 ## 🛠️ Tech Stack
 * **OS:** Oracle Linux 8 (RHEL-based)
 * **IaC Tool:** Terraform v1.x
