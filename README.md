@@ -153,4 +153,12 @@ sudo setenforce 0
 * `sudo systemctl restart docker`
 * `docker ps`
 
+**4 - on-the-fly-for_each-method.tar**
+
+In Terraform, `count` creates an ordered list. If we change something that shifts the "index" or how the list is calculated, Terraform often recreates the whole set to keep the list in order. The problem before this change was that the terraform keeps the `count` logic inside its "memory" (the .tfstate file), we call that **Basic Automation**. When we try to add a new container, terraform destroys all the existing Docker containers and do **replace** to match the count index. 
+
+To get the "surgical" precision we want — where we add one container and the others don't even blink — we must switch from `count` to `for_each`.
+
+Also, we need to tell Terraform to expect (and accept) the `bridge` network mode so it stops trying to "null" it out, to stop the replacements.
+
 ---
